@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/cardView"
+    android:layout_gravity="center"
+    android:layout_marginRight="25dp"
+    android:gravity="center"
+    android:elevation="4dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivBankLogo"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/img_harry_potter" />
+
+</LinearLayout>

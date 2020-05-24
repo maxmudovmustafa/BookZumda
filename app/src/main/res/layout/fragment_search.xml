@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="137dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp">
+
+        <TextView
+            android:id="@+id/tvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common"
+            android:fontFamily="@font/roboto_medium"
+            android:textSize="19sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="27dp"
+            android:layout_height="29.4dp"
+            android:layout_gravity="end"
+            app:srcCompat="@drawable/ic_notification" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/tvSearchVendor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24.8dp"
+            android:background="@drawable/bg_round_search"
+            android:textCursorDrawable="@color/white"
+            app:searchIcon="@null"
+            app:queryHint="Поиск"
+            android:layout_gravity="center"
+            android:gravity="center"
+            app:iconifiedByDefault="false"
+            app:queryBackground="@null" />
+    </FrameLayout>
+
+
+    <include
+        layout="@layout/item_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <FrameLayout
+        android:id="@+id/fullscreenProgressView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="190dp"
+            android:text="@string/loading"
+            android:textColor="@color/primary_text"
+            android:textSize="16sp" />
+    </FrameLayout>
+</LinearLayout>

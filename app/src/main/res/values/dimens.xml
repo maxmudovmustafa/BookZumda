@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="navigation_drawer_width">300dp</dimen>
+    <dimen name="divider_size">1dp</dimen>
+    <dimen name="bottom_bar_notification_left_margin">12dp</dimen>
+
+    <!-- Timeline -->
+    <dimen name="mti_timeline_width">50dp</dimen>
+    <dimen name="mti_timeline_height">85dp</dimen>
+    <dimen name="mti_timeline_lbl_day_text">12dp</dimen>
+    <dimen name="mti_timeline_lbl_date_text">14dp</dimen>
+    <dimen name="mti_timeline_lbl_value">12dp</dimen>
+</resources>

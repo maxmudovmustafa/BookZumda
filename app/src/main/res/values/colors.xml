@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1c73f1</color>
+    <color name="colorPrimaryDark">#CACACA</color>
+    <color name="colorPrimaryLight">#F0EDF9</color>
+    <color name="colorAccent">#1c73f1</color>
+
+    <color name="colorAccentTop">#1ac8fb</color>
+    <color name="primary_text">#ff1f1f1f</color>
+    <color name="secondary_text">#aa1f1f1f</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="silver">#6A8398</color>
+    <color name="lightGrey">#f1f1f1</color>
+    <color name="grey">#757575</color>
+    <color name="search_grey">#e6e6e6</color>
+    <color name="background_payment">#e6e6e6</color>
+    <color name="background_layout">#f2f1f8</color>
+    <color name="background_shadow">#f2f1f8</color>
+    <color name="text_color">#707070</color>
+    <color name="text_success">#252a30</color>
+    <color name="arrow_color">#afafaf</color>
+    <color name="grey_30">#4D757575</color>
+
+    <color name="red">#F23117</color>
+    <color name="lightRed">#FDEAE7</color>
+    <color name="brandy_punch">#D88138</color>
+
+    <color name="green">#5AC54F</color>
+    <color name="lightGreen">#EEF9ED</color>
+    <color name="fruit_salad">#50A164</color>
+
+    <color name="blue">#17d1f2</color>
+    <color name="lightBlue">#e7fafd</color>
+    <color name="mariner">#397BCE</color>
+
+</resources>
