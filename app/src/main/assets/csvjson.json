@@ -481,4 +481,69 @@
     "janr_type": " зарубежная прикладная литература, зарубежная психология, практическая психология, саморазвитие / личностный рост"
   }
 
+,
+  {
+    "id": 40,
+    "name": "Мечтать не вредно",
+    "value": "mechtat ne vredno, barbara sher, enni gottlib",
+    "author": "Барбара Шер, Энни Готтлиб",
+    "price": 35000,
+    "amount": 1000,
+    "description": "Чтобы начать создавать жизнь своей мечты, не нужны мантры, самогипноз, программы закаливания характера или новая зубная паста. Все, что нужно, – практические методики решения проблем, умение планировать, соответствующие навыки, а также доступ к необходимым материалам, информации и контактам.\n\nИменно такие методики и предлагает вам освоить легендарная книга Барбары Шер, которая вот уже в течение 30 лет помогает людям во всем мире превращать свои расплывчатые желания и мечты в конкретные результаты.\n\nНа русском языке публикуется впервые.",
+    "janr_id": "100",
+    "photo": "https://cv7.litres.ru/pub/c/elektronnaya-kniga/cover_415/8205373-barbara-sher-2-mechtat-ne-vredno-kak-poluchit-to-chego-deystvitelno-hoches.jpg",
+    "janr_type": " зарубежная прикладная литература, зарубежная психология, практическая психология, саморазвитие / личностный рост"
+  }
+,
+  {
+    "id": 41,
+    "name": "nothinh",
+    "value": "",
+    "author": "",
+    "price": 35000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "50",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/dashboardimage1.JPG",
+    "janr_type": " "
+  }
+,
+  {
+    "id": 42,
+    "name": "nothinh",
+    "value": "",
+    "author": "",
+    "price": 3500000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "50",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/dashboardimage2.JPG",
+    "janr_type": " "
+  }
+,
+  {
+    "id": 43,
+    "name": "nothinh",
+    "value": "",
+    "author": "",
+    "price": 3500000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "50",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/dashboardimage3.JPG",
+    "janr_type": " "
+  }
+,
+  {
+    "id": 44,
+    "name": "nothinh",
+    "value": "",
+    "author": "",
+    "price": 3500000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "50",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/dashboardimage4.JPG",
+    "janr_type": " "
+  }
 ]

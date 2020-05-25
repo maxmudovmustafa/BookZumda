@@ -4,8 +4,10 @@ import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
+import android.text.Editable
 import android.view.Gravity
 import android.view.View
+import android.widget.EditText
 import android.widget.LinearLayout
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
@@ -24,13 +26,8 @@ import uz.ssd.bookzumda.presentation.dashboard.detail.DetailBookPresentor
 import uz.ssd.bookzumda.presentation.dashboard.detail.DetailBookView
 import uz.ssd.bookzumda.ui.dashboard.list.BooksEntityList
 import uz.ssd.bookzumda.ui.global.*
+import uz.ssd.bookzumda.util.Animation
 import uz.ssd.bookzumda.util.ElegantNumberButton
-import java.io.BufferedInputStream
-import java.io.BufferedReader
-import java.io.DataOutputStream
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
 
 
 /**
@@ -98,33 +95,7 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
         StrictMode.setThreadPolicy(policy)
         btnBuy.setOnClickListener {
 
-            var urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s"
-
-            val apiToken = "1282139079:AAGxWsN3uZnBYW8bFbOP8hMZJT7t6L_0DGs"
-
-            val chatId = "194952542"
-
-            val text = "Hello world!"
-
-            urlString = String.format(urlString, apiToken, chatId, text)
-
-
-            val url = URL(urlString)
-            val conn = url.openConnection() as HttpURLConnection
-            conn.readTimeout = 10000
-            conn.connectTimeout = 15000
-            conn.requestMethod = "POST"
-            conn.doInput = true
-            conn.doOutput = true
-            val wr = DataOutputStream(conn.outputStream)
-            wr.writeBytes("Hello! ")
-            wr.flush()
-            wr.close()
-
-            val inputStream = BufferedInputStream(conn.inputStream)
-            val br = BufferedReader(InputStreamReader(inputStream))
-            val response = br.readText()
-            showMessage(response)
+            presentor.createDialog()
         }
 
         imgBack.setOnClickListener {
@@ -176,6 +147,28 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
             imgAddFavorite.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_red))
         }, 2000)
 
+    }
+
+    override fun showDialog() {
+        val view = layoutInflater.inflate(R.layout.item_registration, null)
+        val etNumber = view.findViewById<EditText>(R.id.etAbonentCode)
+        val dialog = createDialog(view)
+        etNumber.addTextChangedListener(object : TextWatcherWrapper() {
+            override fun afterTextChanged(s: Editable) {
+                etNumber.setText(getPhoneNumber(etNumber.text.toString()))
+                if (etNumber.text.toString().length == 13) {
+                    etNumber.error = null
+                    dialog.dismiss()
+                    presentor.buyBook(etNumber.text.toString())
+                } else {
+                    etNumber.setError(getString(R.string.invalid_phone), null)
+                }
+            }
+        })
+        isAddedFavorite = false
+        dialog.create()
+        dialog.show()
+        Animation().Pulse(etNumber).start()
     }
 
     private fun createDialog(view: View): Dialog {

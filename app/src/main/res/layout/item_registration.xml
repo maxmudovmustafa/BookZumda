@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="8dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        app:helperText="@string/phone_number_helper"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAbonentCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+998"
+            android:inputType="number"
+            android:maxLength="19"
+            android:textSize="14sp"
+            android:hint="@string/phone_number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imgScan"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_phone_call"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_gravity="end" />
+
+</FrameLayout>

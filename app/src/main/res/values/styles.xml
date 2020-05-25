@@ -85,7 +85,7 @@
 
     <!-- Splash-->
     <style name="AppTheme.Splash">
-        <item name="android:windowBackground">@drawable/ic_reload</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
     </style>
 
 

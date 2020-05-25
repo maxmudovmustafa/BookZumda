@@ -13,8 +13,13 @@ import uz.ssd.bookzumda.entity.BooksEntity
 interface DetailBookView : MvpView {
     fun showProgress(show: Boolean)
     fun showBook(books: BooksEntity)
+    fun showError(message: String)
+    fun showSuccessful(message: String)
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showMessage(message: String)
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showDialog()
 
 }

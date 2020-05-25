@@ -7,8 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_search.*
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import kotlinx.android.synthetic.main.fragment_search.fullscreenProgressView
 import kotlinx.android.synthetic.main.item_dashboard_book.*
 import kotlinx.android.synthetic.main.item_dashboard_pager.*
@@ -59,7 +60,7 @@ class DashboardFragment : BaseFragment(), DashboardView {
         cardsRecyclerView.setItemTransitionTimeMillis(150)
 
         recyclerView.apply {
-            layoutManager =
+            layoutManager = //LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
                     GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, false)
                 else GridLayoutManager(context, 4, GridLayoutManager.VERTICAL, false)
@@ -71,12 +72,12 @@ class DashboardFragment : BaseFragment(), DashboardView {
 
 
 
-        tvSearchVendor.findViewById<ImageView>(R.id.search_close_btn).setColorFilter(Color.LTGRAY)
-        val textView = tvSearchVendor.findViewById<TextView>(R.id.search_src_text)
+        tvBookSearch.findViewById<ImageView>(R.id.search_close_btn).setColorFilter(Color.LTGRAY)
+        val textView = tvBookSearch.findViewById<TextView>(R.id.search_src_text)
         textView.setTextColor(Color.BLACK)
         textView.setHintTextColor(Color.LTGRAY)
 
-        tvSearchVendor.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        tvBookSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -87,7 +88,7 @@ class DashboardFragment : BaseFragment(), DashboardView {
             }
         })
 
-        tvSearchVendor.background.alpha = 40
+        tvBookSearch.background.alpha = 75
     }
 
     override fun showProgress(show: Boolean) {

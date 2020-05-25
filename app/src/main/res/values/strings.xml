@@ -18,6 +18,10 @@
 
     <!--    Detail Book-->
     <string name="buy_book">Buy </string>
+    <string name="phone_number">Your Phone number</string>
+    <string name="phone_number_helper">Within 24 hours we will contact with this phone number</string>
+    <string name="next">Continue</string>
+    <string name="invalid_phone">Invalid Phone number</string>
 
     <string name="common">Common Common</string>
     <string name="summa">30.000 so`m</string>

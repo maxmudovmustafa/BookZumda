@@ -35,7 +35,10 @@ class DashboardPresentor @Inject constructor(
             .subscribe({ response ->
                 if (prefs.item == "0")
                     saveBooks(response)
-                viewState.showAllBooks(response)
+                val fictionBooks = response.filter {
+                    it.janr_id == "100"
+                }
+                viewState.showAllBooks(fictionBooks)
 
             }, { error ->
                 viewState.showMessage(error.message.toString())
@@ -45,7 +48,7 @@ class DashboardPresentor @Inject constructor(
 
 
     private fun getBooksByType() {
-        bookDao.getBookSByjanr("100")
+        bookDao.getBookSByjanr("50")
             .doOnSubscribe {
                 viewState.showProgress(true)
             }.doAfterTerminate {
