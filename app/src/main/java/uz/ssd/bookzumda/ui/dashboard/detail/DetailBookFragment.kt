@@ -185,6 +185,13 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
         return dialog
     }
 
+    override fun showError(message: String) {
+
+    }
+
+    override fun showSuccessful(message: String) {
+
+    }
     override fun onBackPressed() {
         presentor.onBackPressed()
     }
