@@ -17,7 +17,7 @@
             android:name=".ui.AppActivity"
             android:launchMode="singleInstance"
             android:theme="@style/AppTheme.Splash"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

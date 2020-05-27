@@ -111,6 +111,10 @@ public class ElegantNumberButton extends RelativeLayout {
         a.recycle();
     }
 
+    public String getValue() {
+        return textView.getText().toString();
+    }
+
     private void callListener(View view) {
         if (mListener != null) {
             mListener.onClick(view);

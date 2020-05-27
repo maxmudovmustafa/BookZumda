@@ -121,6 +121,7 @@
                     android:layout_width="160dp"
                     app:backGroundColor="@color/white"
                     app:textColor="@color/white"
+                    app:initialNumber="1"
                     android:layout_height="wrap_content" />
 
                 <View

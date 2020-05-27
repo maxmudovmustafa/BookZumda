@@ -1,8 +1,11 @@
 package uz.ssd.bookzumda.presentation.dashboard.detail
 
+import com.google.gson.Gson
 import moxy.InjectViewState
 import uz.ssd.bookzumda.di.BOOK_ID
 import uz.ssd.bookzumda.di.PrimitiveWrapper
+import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.entity.Tuple4
 import uz.ssd.bookzumda.model.data.storage.Prefs
 import uz.ssd.bookzumda.model.interactor.BookIntegrator
 import uz.ssd.bookzumda.model.system.flow.FlowRouter
@@ -25,6 +28,8 @@ class DetailBookPresentor @Inject constructor(
     @BOOK_ID private val id_book: PrimitiveWrapper<Int>
 ) : BasePresenter<DetailBookView>() {
 
+    private var bookInfo: BooksEntity? = null
+
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         getBookById()
@@ -38,6 +43,7 @@ class DetailBookPresentor @Inject constructor(
                 viewState.showProgress(false)
             }
             .subscribe({ response ->
+                bookInfo = response
                 viewState.showBook(response)
             }, { error ->
                 viewState.showMessage(error.message.toString())
@@ -64,17 +70,21 @@ class DetailBookPresentor @Inject constructor(
         viewState.showDialog()
     }
 
-    fun buyBook(phone: String) {
+    fun buyBook(phone: String, amount: String) {
         viewState.showProgress(true)
         var urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s"
-
         val apiToken = "1282139079:AAGxWsN3uZnBYW8bFbOP8hMZJT7t6L_0DGs"
-
         val chatId = "194952542"
 
-        val text = phone
 
-        urlString = String.format(urlString, apiToken, chatId, text)
+        val text = Tuple4(
+            phone, amount ,
+            bookInfo?.name ?: "",
+            bookInfo?.photo ?: "",
+            bookInfo?.author ?: ""
+        )
+        val json = Gson().toJson(text)
+        urlString = String.format(urlString, apiToken, chatId, json)
 
         val url = URL(urlString)
         val conn = url.openConnection() as HttpURLConnection
@@ -92,13 +102,10 @@ class DetailBookPresentor @Inject constructor(
             if (response.isNotEmpty()) {
                 viewState.showSuccessful(response)
             }
-        } catch (ex: Exception){
+        } catch (ex: Exception) {
             viewState.showProgress(false)
             viewState.showError(ex.message.toString())
         }
-
-
-
     }
 
     fun onBackPressed() = router.exit()

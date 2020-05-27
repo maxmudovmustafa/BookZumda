@@ -2,13 +2,15 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:padding="8dp"
+    android:layout_margin="12dp"
+    android:padding="12dp"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_weight="1"
+        android:background="@color/white"
         app:helperText="@string/phone_number_helper"
         android:layout_height="wrap_content">
 
@@ -17,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="+998"
+            android:background="@color/white"
             android:inputType="number"
             android:maxLength="19"
             android:textSize="14sp"
@@ -25,11 +28,29 @@
 
     <ImageView
         android:id="@+id/imgScan"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:src="@drawable/ic_phone_call"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:layout_marginTop="8dp"
         android:layout_gravity="end" />
+
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end|center"
+        android:text="@string/next"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/primary_text"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start|center"
+        android:text="@string/cancel"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/red"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
 </FrameLayout>

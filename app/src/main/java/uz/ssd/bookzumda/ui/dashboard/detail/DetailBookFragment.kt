@@ -4,9 +4,9 @@ import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
-import android.text.Editable
 import android.view.Gravity
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import com.airbnb.lottie.LottieAnimationView
@@ -135,7 +135,7 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
     fun showDialogAddFavorite() {
         val view = layoutInflater.inflate(R.layout.item_add_favorite, null)
         isAddedFavorite = false
-        val dialog = createDialog(view)
+        val dialog = createDialog(view, false)
         dialog.show()
         val animation = view.findViewById<LottieAnimationView>(R.id.animationView)
         animation.speed = 0.9f
@@ -152,37 +152,69 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
     override fun showDialog() {
         val view = layoutInflater.inflate(R.layout.item_registration, null)
         val etNumber = view.findViewById<EditText>(R.id.etAbonentCode)
-        val dialog = createDialog(view)
-        etNumber.addTextChangedListener(object : TextWatcherWrapper() {
-            override fun afterTextChanged(s: Editable) {
-                etNumber.setText(getPhoneNumber(etNumber.text.toString()))
-                if (etNumber.text.toString().length == 13) {
-                    etNumber.error = null
-                    dialog.dismiss()
-                    presentor.buyBook(etNumber.text.toString())
-                } else {
-                    etNumber.setError(getString(R.string.invalid_phone), null)
-                }
+        val next = view.findViewById<Button>(R.id.btnNext)
+        val cancel = view.findViewById<Button>(R.id.btnCancel)
+        val dialog = createDialog(view, true)
+
+        cancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        next.setOnClickListener {
+            if (etNumber.text.toString().trim().length == 13) {
+                etNumber.error = null
+                dialog.dismiss()
+                presentor.buyBook(etNumber.text.toString(), item_counter.value)
+            } else {
+                etNumber.setError(getString(R.string.invalid_phone), null)
             }
-        })
+        }
+
+        if (etNumber.text.toString().length == 13) {
+            etNumber.error = null
+        } else {
+            etNumber.setError(getString(R.string.invalid_phone), null)
+        }
+
         isAddedFavorite = false
         dialog.create()
         dialog.show()
         Animation().Pulse(etNumber).start()
     }
 
-    private fun createDialog(view: View): Dialog {
+    private fun createDialog(view: View, confiure: Boolean): Dialog {
         val dialog = Dialog(activity!!, R.style.Theme_Dim_Dialog)
         dialog.setContentView(view)
-        dialog.setCancelable(false)
-        dialog.setCanceledOnTouchOutside(false)
+        dialog.setCancelable(confiure)
+        dialog.setCanceledOnTouchOutside(confiure)
         dialog.window?.setLayout(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.MATCH_PARENT
+            if (!confiure) LinearLayout.LayoutParams.MATCH_PARENT
+            else LinearLayout.LayoutParams.WRAP_CONTENT,
+            if (!confiure) LinearLayout.LayoutParams.MATCH_PARENT
+            else LinearLayout.LayoutParams.WRAP_CONTENT
         )
 
         dialog.window?.setGravity(Gravity.CENTER)
         return dialog
+    }
+
+    private fun getPhoneNumber(phone: String): String {
+        if (phone.isEmpty() && phone.length < 4) return "+998"
+        val _phone = phone.substring(4, phone.length)
+        val length = _phone.length
+        println(_phone)
+        return "+998 " + when (length) {
+            1 -> "(${_phone}"
+            2 -> "(${_phone})"
+            3 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 3)}"
+            4 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 4)}"
+            5 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 5)}"
+            6 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 5)} ${_phone.substring(5, 6)}"
+            7 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 5)} ${_phone.substring(5, 7)}"
+            8 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 5)} ${_phone.substring(5, 8)}"
+            9 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2, 5)} ${_phone.substring(5, 9)}"
+            else -> _phone
+        }
     }
 
     override fun showError(message: String) {
@@ -192,6 +224,7 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
     override fun showSuccessful(message: String) {
 
     }
+
     override fun onBackPressed() {
         presentor.onBackPressed()
     }

@@ -226,26 +226,6 @@ fun Context.readJsonAsset(fileName: String): String {
     return String(buffer, Charsets.UTF_8)
 }
 
-
-fun getPhoneNumber(phone: String): String {
-    if (phone.isEmpty() && phone.length < 4) return "+998"
-    val _phone = phone.substring(4, phone.length)
-    val length = _phone.length
-    println(_phone)
-    return "+998 " + when (length) {
-        1 -> "(${_phone}"
-        2 -> "(${_phone})"
-        3 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,3)}"
-        4 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,4)}"
-        5 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,5)}"
-        6 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,5)} ${_phone.substring(5, 6)}"
-        7 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,5)} ${_phone.substring(5, 7)}"
-        8 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,5)} ${_phone.substring(5, 8)}"
-        9 -> "(${_phone.substring(0, 2)}) ${_phone.substring(2,5)} ${_phone.substring(5, 9)}"
-        else -> _phone
-    }
-}
-
 @StringDef(PHONE_9_MASK, PHONE_8_MASK, CPF_MASK, ZIP_CODE_PT_BR, MONTH_YEAR, CREDIT_CARD)
 @Retention(AnnotationRetention.SOURCE)
 annotation class MaskType

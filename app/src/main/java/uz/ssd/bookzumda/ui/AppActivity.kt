@@ -1,6 +1,7 @@
 package uz.ssd.bookzumda.ui
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -62,6 +63,7 @@ class AppActivity: MvpAppCompatActivity() {
         if (savedInstanceState == null) {
             appLauncher.coldStart()
         }
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
     }
 
     override fun onResumeFragments() {
