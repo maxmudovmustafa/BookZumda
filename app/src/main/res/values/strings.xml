@@ -22,7 +22,11 @@
     <string name="phone_number_helper">Within 24 hours we will contact with this phone number</string>
     <string name="next">Continue</string>
     <string name="invalid_phone">Invalid Phone number</string>
+    <string name="more_from_this_author">More from this author</string>
+    <string name="more_category">Category</string>
+
 
     <string name="common">Common Common</string>
     <string name="summa">30.000 so`m</string>
+    <string name="favorite">Add favorite</string>
 </resources>

@@ -5,6 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/imgBack"
+            style="@style/ToolbarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_back"
+            app:menu="@menu/add_favorite"
+            app:title="@string/app_name" />
+    </com.google.android.material.appbar.AppBarLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,31 +27,6 @@
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="horizontal">
-
-            <androidx.appcompat.widget.AppCompatImageButton
-                android:id="@+id/imgBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:srcCompat="@drawable/ic_back"
-                android:background="@color/white" />
-
-            <ImageView
-                android:id="@+id/imgAddFavorite"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="end|center"
-                android:layout_marginRight="15dp"
-                android:src="@drawable/ic_favorite" />
-
-        </FrameLayout>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -102,6 +92,7 @@
                             android:textSize="20sp"
                             tools:text="@string/summa" />
                     </LinearLayout>
+
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnBuy"
                         android:layout_width="180dp"
@@ -115,10 +106,9 @@
                 </RelativeLayout>
 
 
-
                 <uz.ssd.bookzumda.util.ElegantNumberButton
                     android:id="@+id/item_counter"
-                    android:layout_width="160dp"
+                    android:layout_width="180dp"
                     app:backGroundColor="@color/white"
                     app:textColor="@color/white"
                     app:initialNumber="1"
@@ -145,23 +135,28 @@
                     android:layout_height="1dp"
                     android:background="@color/background_layout" />
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:background="@drawable/bg_white_background"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/common"
+                        android:layout_weight="1"
+                        android:text="@string/more_from_this_author"
                         android:textColor="@color/text_color"
                         android:textSize="16sp" />
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvMoreAuthor"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="@string/common"
                         android:layout_gravity="end|center"
                         android:layout_marginRight="50dp"
@@ -169,36 +164,42 @@
                         android:textSize="16sp" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="18dp"
+                        android:layout_height="19dp"
                         android:layout_gravity="end|center"
                         android:background="@color/white"
                         android:layout_marginRight="10dp"
                         app:srcCompat="@drawable/ic_fast_forward" />
-                </FrameLayout>
+                </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/background_layout" />
 
-                <FrameLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:background="@drawable/bg_white_background"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/common"
+                        android:layout_weight="1"
+                        android:text="@string/more_category"
                         android:textColor="@color/text_color"
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/tvMorecategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
                         android:text="@string/common"
                         android:layout_gravity="end|center"
                         android:layout_marginRight="50dp"
@@ -206,13 +207,13 @@
                         android:textSize="16sp" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
                         android:layout_gravity="end|center"
                         android:background="@color/white"
                         android:layout_marginRight="10dp"
                         app:srcCompat="@drawable/ic_fast_forward" />
-                </FrameLayout>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 

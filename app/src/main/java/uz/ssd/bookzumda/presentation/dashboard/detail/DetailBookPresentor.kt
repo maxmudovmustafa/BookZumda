@@ -70,6 +70,10 @@ class DetailBookPresentor @Inject constructor(
         viewState.showDialog()
     }
 
+    fun addToFavorite() {
+        
+    }
+
     fun buyBook(phone: String, amount: String) {
         viewState.showProgress(true)
         var urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s"
@@ -78,7 +82,7 @@ class DetailBookPresentor @Inject constructor(
 
 
         val text = Tuple4(
-            phone, amount ,
+            phone, amount,
             bookInfo?.name ?: "",
             bookInfo?.photo ?: "",
             bookInfo?.author ?: ""

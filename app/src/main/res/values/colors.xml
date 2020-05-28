@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1c73f1</color>
+    <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#CACACA</color>
     <color name="colorPrimaryLight">#F0EDF9</color>
     <color name="colorAccent">#1c73f1</color>
@@ -22,6 +22,7 @@
     <color name="text_success">#252a30</color>
     <color name="arrow_color">#afafaf</color>
     <color name="grey_30">#4D757575</color>
+    <color name="grey_75">#e6e6e6</color>
 
     <color name="red">#F23117</color>
     <color name="lightRed">#FDEAE7</color>

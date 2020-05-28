@@ -80,15 +80,17 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
 //            visible(false)
 //        }
 
-        imgAddFavorite.setOnClickListener {
-            if (isAddedFavorite)
-                showDialogAddFavorite()
-            else {
-                imgAddFavorite.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite))
-                isAddedFavorite = true
+        imgBack.setOnMenuItemClickListener {
+            if (it.itemId == R.id.imgAddFavorite) {
+                if (isAddedFavorite)
+                    showDialogAddFavorite()
+                else {
+                    imgBack.menu.getItem(0).icon = resources.getDrawable(R.drawable.ic_favorite)
+                    isAddedFavorite = true
+                }
             }
+            true
         }
-
 
         val policy = StrictMode.ThreadPolicy.Builder()
             .permitAll().build()
@@ -132,8 +134,9 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
         activity?.hideKeyboard()
     }
 
-    fun showDialogAddFavorite() {
+    private fun showDialogAddFavorite() {
         val view = layoutInflater.inflate(R.layout.item_add_favorite, null)
+        presentor.addToFavorite()
         isAddedFavorite = false
         val dialog = createDialog(view, false)
         dialog.show()
@@ -144,7 +147,7 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
         }, 300)
         Handler().postDelayed({
             dialog.dismiss()
-            imgAddFavorite.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_red))
+            imgBack.menu.getItem(0).icon = resources.getDrawable(R.drawable.ic_favorite_red)
         }, 2000)
 
     }
