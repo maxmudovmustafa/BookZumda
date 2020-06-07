@@ -17,3 +17,6 @@ annotation class ServerPath
 
 @Qualifier
 annotation class BOOK_ID
+
+@Qualifier
+annotation class TYPE

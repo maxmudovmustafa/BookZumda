@@ -17,6 +17,9 @@ interface ProfileView : MvpView {
     fun showLogoutConfirmDialog()
 
     @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showSuccessDialog()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
     fun showMessage(message: String)
 
     class Details(

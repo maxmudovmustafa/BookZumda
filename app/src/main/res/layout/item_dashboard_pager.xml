@@ -3,15 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="240dp"
     android:paddingBottom="3dp"
     android:fillViewport="true"
     android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitlePager"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textStyle="bold"
+            android:textSize="19sp"
+            android:textColor="@color/primary_text"
+            android:gravity="center"
+            android:text="Новости будут показаны здесь" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDetailPager"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textColor="@color/grey"
+            android:textSize="15sp"
+            android:gravity="start"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="8dp"
+            android:text="Вы можете найти все, что вы хотите" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -23,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 app:dsv_orientation="horizontal"
+                android:elevation="5dp"
                 tools:listitem="@layout/item_dashboard" />
 
             <com.chahinem.pageindicator.PageIndicator
@@ -35,9 +58,9 @@
                 app:piDotSpacing="15dp"
                 app:piInitialPadding="70dp"
                 app:piDot="true"
-                app:piDefaultColor="@color/grey_30"
-                app:piSelectedColor="@color/grey"
-                app:piSize1="13dp"
+                app:piDefaultColor="@color/grey"
+                app:piSelectedColor="@color/mariner"
+                app:piSize1="10dp"
                 app:piSize2="8dp"
                 app:piSize3="8dp"
                 app:piSize4="8dp"

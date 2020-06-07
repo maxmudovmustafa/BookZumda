@@ -1,6 +1,9 @@
 package uz.ssd.bookzumda.presentation.profile
 
 import moxy.InjectViewState
+import uz.ssd.bookzumda.Screens
+import uz.ssd.bookzumda.entity.UserAccount
+import uz.ssd.bookzumda.model.data.storage.Prefs
 import uz.ssd.bookzumda.model.system.flow.FlowRouter
 import uz.ssd.bookzumda.presentation.global.BasePresenter
 import javax.inject.Inject
@@ -10,19 +13,20 @@ import javax.inject.Inject
  */
 @InjectViewState
 class ProfilePresenter @Inject constructor(
+    private val prefs: Prefs,
     private val router: FlowRouter
 ) : BasePresenter<ProfileView>() {
 
+    private var account = UserAccount("", "", "")
+
     override fun onFirstViewAttach() {
+        account = prefs.account
         viewState.showDetails(
             ProfileView.Details(
-                "Shoxruxbek",
-                "(\\d{5})(\\d{3})(\\d{2})(\\d{2})".toRegex().replaceFirst(
-//                    account.replace("+", ""),
-                    "998998578086",
-                    "+$1 $2 $3 $4"
-                )
-        ))
+                account.full_name,
+                    account.phone
+            )
+        )
     }
 
     fun onClickLogout() {
@@ -32,6 +36,29 @@ class ProfilePresenter @Inject constructor(
     fun onClickConfirmLogout() {
     }
 
+    fun saveData(name: String, phone: String) {
+        account.full_name = name
+        account.phone = phone
+        prefs.account = account
+        viewState.showSuccessDialog()
+    }
+
+    fun showMyBooks() {
+        router.newChain(Screens.MyBooks(TYPE_BUY))
+    }
+
+    fun showFavorites() {
+        router.newChain(Screens.MyBooks(TYPE_FAV))
+    }
+
+    fun openInfo() {
+        router.newChain(Screens.Info)
+    }
+
     fun onBackPressed() = router.exit()
 
+    companion object {
+        const val TYPE_FAV = 0
+        const val TYPE_BUY = 1
+    }
 }

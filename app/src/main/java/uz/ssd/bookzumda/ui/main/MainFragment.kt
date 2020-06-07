@@ -15,7 +15,6 @@ import uz.ssd.bookzumda.Screens
 import uz.ssd.bookzumda.entity.AccountMainBadge
 import uz.ssd.bookzumda.presentation.main.MainPresenter
 import uz.ssd.bookzumda.presentation.main.MainView
-import uz.ssd.bookzumda.presentation.search.SearchPresenter
 import uz.ssd.bookzumda.ui.global.BaseFragment
 import uz.ssd.bookzumda.ui.global.color
 import uz.ssd.bookzumda.ui.global.visible
@@ -23,6 +22,8 @@ import uz.ssd.bookzumda.ui.global.visible
 /**
  * Created by MrShoxruxbek on 22,May,2020
  */
+
+@Suppress("DEPRECATION")
 class MainFragment : BaseFragment(), MainView {
     override val layoutRes = R.layout.fragment_main
 

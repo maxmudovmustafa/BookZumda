@@ -1,0 +1,116 @@
+[
+  {
+    "id": 1,
+    "name": "До встречи с тобой",
+    "value": "do vstrechi s toboy",
+    "author": "Джоджо Мойес",
+    "price": 33000,
+    "janr_id": "100",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/101dovstrechi.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Нет оправданий! Сила самодисциплины",
+    "value": "net opravdaniya brayan treysi",
+    "author": "Брайан Трейси",
+    "price": 19000,
+    "janr_id": "100",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/btnetopravdaniya.jpg"
+  },
+  {
+    "id": 3,
+    "name": "тренажеры",
+    "value": "trenajori",
+    "author": "",
+    "price": 8000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/trinajori.jpg",
+    "janr_type": "для детей"
+  },
+  {
+    "id": 4,
+    "name": "прописи",
+    "value": "propisi",
+    "author": "",
+    "price": 3000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/propis2000.jpg",
+    "janr_type": "для детей"
+  },
+  {
+    "id": 5,
+    "name": "тренажеры",
+    "value": "trenajori",
+    "author": "",
+    "price": 8000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/5trenajori7000.jpg",
+    "janr_type": "для детей"
+  },
+  {
+    "id": 6,
+    "name": "таблица умножения",
+    "value": "tablitsa umnojeniya",
+    "author": "",
+    "price": 5000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/karrajanvali5000.jpg",
+    "janr_type": "для детей"
+  },
+  {
+    "id": 7,
+    "name": "гарри поттер и философский камень",
+    "value": "garri potter i flosevicheskiy kamin",
+    "author": "J.K. Rowling",
+    "price": 33000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "100",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/harryPotter1.jpg",
+    "janr_type": "Фэнтези"
+  },
+  {
+    "id": 8,
+    "name": "пропис",
+    "value": "propis",
+    "author": "lingua",
+    "price": 3000,
+    "amount": 1000,
+    "description": "",
+    "janr_id": "",
+    "photo": "https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/propislingua.jpg",
+    "janr_type": "для детей"
+  },
+  {
+    "id": 9,
+    "name": "прописи",
+    "value": "bostnikova прописи",
+    "author": "бортникова",
+    "price": 3000,
+    "amount": 1000,
+    "description": "Тетрадей для детей от Елены Борниковой.\nМои печатные прописи для 4-6 лет",
+    "janr_id": "",
+    "photo": "https://img3.labirint.ru/rc/0c29f7c582b72401d452a8613121bb6b/220x340/books57/568973/cover.jpg?1563968217",
+    "janr_type": "для детей"
+  },
+  {
+    "id": 10,
+    "name": "прописи",
+    "value": "bostnikova прописи",
+    "author": "бортникова",
+    "price": 3000,
+    "amount": 1000,
+    "description": "Мои первое прописи для 3-4, 4-5, 5-6, 6-7 лет",
+    "janr_id": "",
+    "photo": "https://img4.labirint.ru/rc/ebcc959b4c5bedad0241f447c5e27cad/220x340/books57/568972/cover.jpg?1563968216",
+    "janr_type": "для детей"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Реализм",
+    "amount": 0
+  },
+  {
+    "id": 2,
+    "name": "Любов",
+    "amount": 0
+  },
+  {
+    "id": 3,
+    "name": "романы",
+    "amount": 0
+  },
+  {
+    "id": 4,
+    "name": "Саморазвитие / личностный рост",
+    "amount": 0
+  },
+  {
+    "id": 5,
+    "name": "для детей",
+    "amount": 0
+  },
+  {
+    "id": 6,
+    "name": "Фэнтези",
+    "amount": 0
+  },
+  {
+    "id": 7,
+    "name": "Реализм",
+    "amount": 0
+  },
+  {
+    "id": 8,
+    "name": "Бизнес",
+    "amount": 0
+  },
+  {
+    "id": 9,
+    "name": "Реализм",
+    "amount": 0
+  },
+  {
+    "id": 10,
+    "name": "Management",
+    "amount": 0
+  },
+  {
+    "id": 11,
+    "name": "Adventures",
+    "amount": 0
+  },
+  {
+    "id": 12,
+    "name": "Detectives",
+    "amount": 0
+  },
+  {
+    "id": 13,
+    "name": "Литературы",
+    "amount": 0
+  },
+  {
+    "id": 14,
+    "name": "Мотива́ция",
+    "amount": 0
+  },
+  {
+    "id": 15,
+    "name": "Эффекти́вность",
+    "amount": 0
+  },
+  {
+    "id": 16,
+    "name": "Психология",
+    "amount": 0
+  }
+]

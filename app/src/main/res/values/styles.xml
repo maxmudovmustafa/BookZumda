@@ -79,6 +79,9 @@
 
     <style name="ToolbarStyle" parent="Base.ToolbarStyle">
         <item name="android:elevation">4dp</item>
+        <item name="android:color">@color/white</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="ToolbarWithTabsStyle" parent="Base.ToolbarStyle" />

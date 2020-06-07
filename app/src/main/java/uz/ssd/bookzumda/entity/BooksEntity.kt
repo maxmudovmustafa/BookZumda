@@ -1,5 +1,6 @@
 package uz.ssd.bookzumda.entity
 
+import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.squareup.moshi.JsonClass
@@ -11,6 +12,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 class BooksEntity(
     @PrimaryKey
+    @NonNull
     val id: Int,
     val name: String,
     val value: String,
@@ -20,5 +22,6 @@ class BooksEntity(
     val description: String?,
     val janr_id: String?,
     val photo: String?,
-    val janr_type: String?
+    val janr_type: String?,
+    var favorite: Int = 0
 )

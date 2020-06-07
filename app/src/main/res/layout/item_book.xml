@@ -16,15 +16,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:backgroundTint="@color/colorPrimaryLight"
         android:elevation="7dp"
         app:cardUseCompatPadding="true">
+
+        <ProgressBar
+            android:id="@+id/fullscreenProgressView"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center" />
 
         <ImageView
             android:id="@+id/imgBook"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/img_harry_potter" />
+            android:scaleType="centerCrop" />
 
     </androidx.cardview.widget.CardView>
 

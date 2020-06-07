@@ -15,6 +15,8 @@ interface DetailBookView : MvpView {
     fun showBook(books: BooksEntity)
     fun showError(message: String)
     fun showSuccessful(message: String)
+    fun showAuthors(books: List<BooksEntity>)
+    fun showMoreBooks(books: List<BooksEntity>)
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showMessage(message: String)

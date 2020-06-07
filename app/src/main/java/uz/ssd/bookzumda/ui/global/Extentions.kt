@@ -1,6 +1,7 @@
 package uz.ssd.bookzumda.ui.global
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
@@ -9,6 +10,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.text.*
 import android.text.style.ForegroundColorSpan
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,7 @@ import android.view.inputmethod.InputMethodManager
 import android.webkit.URLUtil
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.LayoutRes
@@ -35,7 +38,6 @@ import uz.ssd.bookzumda.R
 import java.io.IOException
 import java.text.DecimalFormat
 import java.text.DecimalFormatSymbols
-import kotlin.coroutines.coroutineContext
 
 /**
  * Created by MrShoxruxbek on 22,May,2020
@@ -213,8 +215,7 @@ fun formatMoney(value: Double, showDecimal: Boolean): String {
     return decimalFormat.format(value)
 }
 
-fun getColoredSpanned(message: String, color: String)
-        = "<font color=$color>$message</font>"
+fun getColoredSpanned(message: String, color: String) = "<font color=$color>$message</font>"
 
 @Throws(IOException::class)
 fun Context.readJsonAsset(fileName: String): String {
@@ -283,7 +284,7 @@ fun String.formatPhone(): String {
     return _phone
 }
 
-open class MaskTextWatcher(val mask: String = ""): SimpleTextWatcher() {
+open class MaskTextWatcher(val mask: String = "") : SimpleTextWatcher() {
 
     internal var oldValue = ""
 
@@ -331,9 +332,9 @@ open class MaskTextWatcher(val mask: String = ""): SimpleTextWatcher() {
 }
 
 open class SimpleTextWatcher : TextWatcher {
-    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) { }
+    override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
-    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) { }
+    override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
 
-    override fun afterTextChanged(edit: Editable) { }
+    override fun afterTextChanged(edit: Editable) {}
 }

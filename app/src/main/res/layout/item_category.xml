@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fmBackground"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_button_blue_grey"
+    android:layout_margin="15dp"
+    android:padding="10dp"
+    android:clickable="true"
+    android:elevation="8dp"
+    android:focusable="true">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgBackground"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/ic_bg_category_9"
+        android:layout_gravity="center"
+        android:scaleType="fitCenter" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Podbornioy knigi"
+        android:textColor="@color/white"
+        android:paddingBottom="10dp"
+        android:textSize="11sp"
+        android:layout_gravity="center|bottom" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Knigi"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_marginBottom="30dp"
+        android:paddingBottom="10dp"
+        android:layout_gravity="center|bottom" />
+</FrameLayout>

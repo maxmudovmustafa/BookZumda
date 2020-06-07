@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="8dp">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/tvSearchVendor"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bg_round_search"
+                android:textCursorDrawable="@color/white"
+                app:searchIcon="@null"
+                app:queryHint="Поиск"
+                android:layout_gravity="center|bottom"
+                app:iconifiedByDefault="false"
+                app:queryBackground="@null" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/fullscreenProgressView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="190dp"
+                android:text="@string/loading"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_category" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_blue_grey"
+                    android:focusable="true"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_9"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podbornioy knigi"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Knigi"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_geen"
+                    android:focusable="true"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground2"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_2"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podbornioy knigi"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Biznes"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_yellow"
+                    android:focusable="true"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground3"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_3"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podbornioy knigi"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="somo razvitie"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_fialetiviy"
+                    android:focusable="true"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground4"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_9"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podbornioy knigi"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Liderstvo"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_grey"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_margin="10dp"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground5"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_5"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podbornioy knigi"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="zdoroviye"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_blue"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_margin="10dp"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground6"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_6"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="taym menejment"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="taym menejment"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_blue_grey"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_margin="10dp"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground7"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_7"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podbornioy knigi"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="dlya detey i roditeley"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_button_yellow"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:layout_margin="10dp"
+                    android:elevation="12dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgBackground8"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/ic_bg_category_8"
+                        android:layout_gravity="center"
+                        android:scaleType="fitCenter" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ypravleniya preyektam i prossessami"
+                        android:textColor="@color/white"
+                        android:paddingBottom="10dp"
+                        android:textSize="11sp"
+                        android:layout_gravity="center|bottom" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="psixologiya"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginBottom="30dp"
+                        android:paddingBottom="10dp"
+                        android:layout_gravity="center|bottom" />
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

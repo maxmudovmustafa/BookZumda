@@ -40,17 +40,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end|center"
         android:text="@string/next"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="90dp"
         android:textColor="@color/primary_text"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|start|center"
         android:text="@string/cancel"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="90dp"
         android:textColor="@color/red"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
 </FrameLayout>

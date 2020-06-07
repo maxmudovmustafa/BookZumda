@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -16,21 +17,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back"
-            app:menu="@menu/add_favorite"
-            app:title="@string/app_name" />
+            android:scrollbarSize="2dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dialog.Alert"
+            app:title="@string/detail">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgFavorite"
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="15dp"
+                app:srcCompat="@drawable/ic_favorite"
+                android:layout_gravity="end" />
+
+        </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
-        <ScrollView
+        <FrameLayout
+            android:id="@+id/fullscreenProgressView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="1000dp"
+            android:layout_marginTop="40dp"
+            android:visibility="gone">
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="190dp"
+                android:text="@string/loading"
+                android:textColor="@color/primary_text"
+                android:textSize="16sp" />
+        </FrameLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,13 +79,13 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="10dp">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/imgBook"
-                        android:layout_width="180dp"
+                        android:layout_width="160dp"
                         android:layout_height="180dp"
                         android:scaleType="centerCrop"
                         android:padding="8dp"
-                        android:elevation="7dp"
+                        android:elevation="8dp"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_gravity="start"
@@ -57,7 +93,7 @@
 
                     <LinearLayout
                         android:id="@+id/llDetail"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/imgBook"
@@ -69,7 +105,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/primary_text"
                             android:maxLines="3"
-                            android:textSize="15sp"
+                            android:textSize="17sp"
                             tools:text="@string/common" />
 
                         <TextView
@@ -93,24 +129,16 @@
                             tools:text="@string/summa" />
                     </LinearLayout>
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btnBuy"
-                        android:layout_width="180dp"
-                        android:layout_height="50dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_toEndOf="@+id/imgBook"
-                        android:layout_alignBottom="@+id/llDetail"
-                        android:layout_alignParentBottom="true"
-                        android:background="@drawable/bg_button_blue"
-                        android:text="@string/buy_book" />
                 </RelativeLayout>
-
 
                 <uz.ssd.bookzumda.util.ElegantNumberButton
                     android:id="@+id/item_counter"
                     android:layout_width="180dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
                     app:backGroundColor="@color/white"
                     app:textColor="@color/white"
+                    android:layout_gravity="start"
                     app:initialNumber="1"
                     android:layout_height="wrap_content" />
 
@@ -123,8 +151,9 @@
                     android:id="@+id/tvDetailBook"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/common"
+                    android:text="@string/more_from_this_author"
                     android:layout_marginRight="15dp"
+                    android:visibility="gone"
                     android:fontFamily="sans-serif-condensed-medium"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="20dp"
@@ -145,37 +174,27 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="0dp"
+                        android:id="@+id/tvFromThisAuthor"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:text="@string/more_from_this_author"
                         android:textColor="@color/text_color"
                         android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/tvMoreAuthor"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/common"
-                        android:layout_gravity="end|center"
-                        android:layout_marginRight="50dp"
-                        android:textColor="@color/text_color"
-                        android:textSize="16sp" />
-
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="18dp"
-                        android:layout_height="19dp"
-                        android:layout_gravity="end|center"
-                        android:background="@color/white"
-                        android:layout_marginRight="10dp"
-                        app:srcCompat="@drawable/ic_fast_forward" />
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/background_layout" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcAuthor"
+                    android:layout_width="match_parent"
+                    android:layout_margin="8dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -187,58 +206,140 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvSimularBooks"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/more_category"
+                        android:text="@string/simular_boook"
                         android:textColor="@color/text_color"
                         android:textSize="16sp" />
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tvMorecategory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcMoreBook"
+                    android:layout_width="match_parent"
+                    android:layout_margin="8dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location"
+                    android:textSize="19sp"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    style="@style/TextTitle"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="10dp" />
+
+                <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_gravity="end|bottom"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/geo_location" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contacts_1"
+                    android:textSize="14sp"
+                    style="@style/TextTitle"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:textColor="@color/primary_text"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="10dp" />
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contacts_address"
+                    android:textSize="14sp"
+                    style="@style/TextTitle"
+                    android:layout_margin="5dp"
+                    android:padding="5dp"
+                    android:textColor="@color/text_color"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="150dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvPhone"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:maxLines="1"
-                        android:text="@string/common"
-                        android:layout_gravity="end|center"
-                        android:layout_marginRight="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone"
+                        android:textSize="12sp"
+                        style="@style/TextTitle"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
                         android:textColor="@color/text_color"
-                        android:textSize="16sp" />
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="10dp" />
 
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="19dp"
-                        android:layout_height="19dp"
-                        android:layout_gravity="end|center"
-                        android:background="@color/white"
-                        android:layout_marginRight="10dp"
-                        app:srcCompat="@drawable/ic_fast_forward" />
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/email"
+                        android:textSize="12sp"
+                        style="@style/TextTitle"
+                        android:layout_margin="5dp"
+                        android:padding="5dp"
+                        android:textColor="@color/text_color"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="10dp" />
                 </LinearLayout>
             </LinearLayout>
-        </ScrollView>
-
-        <FrameLayout
-            android:id="@+id/fullscreenProgressView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-            <ProgressBar
-                style="@style/Widget.AppCompat.ProgressBar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="190dp"
-                android:text="@string/loading"
-                android:textColor="@color/primary_text"
-                android:textSize="16sp" />
-        </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:background="@color/white"
+        android:layout_gravity="center|bottom">
+
+        <FrameLayout
+            android:id="@+id/btnBuy"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:elevation="8dp"
+            android:background="@drawable/bg_button_blue"
+            android:clickable="true">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textSize="18sp"
+                android:text="@string/buy_book" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="15dp"
+                app:srcCompat="@drawable/ic_buy"
+                android:layout_gravity="center|start" />
+
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+</FrameLayout>

@@ -7,7 +7,9 @@ import uz.ssd.bookzumda.ui.dashboard.DashboardFragment
 import uz.ssd.bookzumda.ui.dashboard.detail.DetailBookFragment
 import uz.ssd.bookzumda.ui.main.MainFlowFragment
 import uz.ssd.bookzumda.ui.main.MainFragment
+import uz.ssd.bookzumda.ui.profile.MyBooksFragment
 import uz.ssd.bookzumda.ui.profile.ProfileFragment
+import uz.ssd.bookzumda.ui.profile.info.InfoFragment
 import uz.ssd.bookzumda.ui.search.SearchsFragment
 
 /**
@@ -43,6 +45,14 @@ object Screens {
 
    object Login : SupportAppScreen() {
         override fun getFragment() = LoginFragment()
+    }
+
+   object Info : SupportAppScreen() {
+        override fun getFragment() = InfoFragment()
+    }
+
+    data class MyBooks(val type: Int) : SupportAppScreen() {
+        override fun getFragment() = MyBooksFragment.create(type)
     }
 
     data class DetailBook(val id_book: Int): SupportAppScreen() {

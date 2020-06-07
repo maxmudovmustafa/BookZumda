@@ -8,6 +8,7 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import toothpick.Toothpick
 import uz.ssd.bookzumda.R
+import uz.ssd.bookzumda.entity.BooksEntity
 import uz.ssd.bookzumda.presentation.search.SearchPresenter
 import uz.ssd.bookzumda.presentation.search.SearchsView
 import uz.ssd.bookzumda.ui.global.BaseFragment
@@ -45,6 +46,22 @@ class LoginFragment : BaseFragment(), SearchsView {
 
     override fun onBackPressed() {
         vendorPresenter.onBackPressed()
+    }
+
+    override fun showProgress(show: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showBooks(books: List<BooksEntity>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showError(message: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showSuccessful(message: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showMessage(message: String) {

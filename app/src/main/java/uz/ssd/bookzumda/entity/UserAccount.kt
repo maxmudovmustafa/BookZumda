@@ -7,11 +7,7 @@ import com.squareup.moshi.JsonClass
  */
 @JsonClass(generateAdapter = true)
 class UserAccount(
-    val full_name: String,
-    val avatarUrl: String,
-    val birthday: String,
-    val gender: String,
-    val email: String,
-    val phone: String,
-    val backupPhoneNumber: String
+    var full_name: String,
+    var gender: String,
+    var phone: String
 )

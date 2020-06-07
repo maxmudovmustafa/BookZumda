@@ -1,6 +1,9 @@
 package uz.ssd.bookzumda.ui.dashboard.detail
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
@@ -9,8 +12,11 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
+import com.davemorrissey.labs.subscaleview.ImageSource
 import kotlinx.android.synthetic.main.fragment_dashboard_detail.*
 import kotlinx.android.synthetic.main.fragment_search.fullscreenProgressView
 import moxy.presenter.InjectPresenter
@@ -24,6 +30,8 @@ import uz.ssd.bookzumda.di.PrimitiveWrapper
 import uz.ssd.bookzumda.entity.BooksEntity
 import uz.ssd.bookzumda.presentation.dashboard.detail.DetailBookPresentor
 import uz.ssd.bookzumda.presentation.dashboard.detail.DetailBookView
+import uz.ssd.bookzumda.ui.dashboard.detail.list.MoreAuthoerList
+import uz.ssd.bookzumda.ui.dashboard.detail.list.MoreBookList
 import uz.ssd.bookzumda.ui.dashboard.list.BooksEntityList
 import uz.ssd.bookzumda.ui.global.*
 import uz.ssd.bookzumda.util.Animation
@@ -43,6 +51,15 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
     fun getProviderPresenter(): DetailBookPresentor =
         scope.getInstance(DetailBookPresentor::class.java)
 
+
+    private val moreAuthor: MoreAuthoerList by lazy {
+        MoreAuthoerList { presentor.onClickedBook(it) }
+    }
+
+
+    private val moreBook: MoreBookList by lazy {
+        MoreBookList { presentor.onClickedBook(it) }
+    }
 
     private val idBook: Int by argument(ID_BOOK)
 
@@ -72,22 +89,13 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-//        recyclerView.apply {
-//            layoutManager = LinearLayoutManager(context)
-//            setHasFixedSize(true)
-//            setRecycledViewPool(RecyclerView.RecycledViewPool())
-//            adapter = this@DetailBookFragment.requestAdapter
-//            visible(false)
-//        }
-
-        imgBack.setOnMenuItemClickListener {
-            if (it.itemId == R.id.imgAddFavorite) {
-                if (isAddedFavorite)
-                    showDialogAddFavorite()
-                else {
-                    imgBack.menu.getItem(0).icon = resources.getDrawable(R.drawable.ic_favorite)
-                    isAddedFavorite = true
-                }
+        imgFavorite.setOnClickListener {
+            if (isAddedFavorite)
+                showDialogAddFavorite()
+            else {
+                imgFavorite.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite))
+                isAddedFavorite = true
+                presentor.removeFavorite()
             }
             true
         }
@@ -96,22 +104,33 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
             .permitAll().build()
         StrictMode.setThreadPolicy(policy)
         btnBuy.setOnClickListener {
-
-            presentor.createDialog()
+            showProgressDialog(true)
+            presentor.createDialog(item_counter.value)
         }
 
         imgBack.setOnClickListener {
             presentor.onBackPressed()
         }
 
-//        item_counter.updateColors(Color.WHITE, Color.BLACK)
         item_counter.setRange(1, 100)
 
-        item_counter.setOnClickListener(object : ElegantNumberButton.OnClickListener {
-            override fun onClick(view: View?) {
-                item_counter.number
-            }
-        })
+        item_counter.setOnClickListener(ElegantNumberButton.OnClickListener { item_counter.number })
+
+        rcAuthor.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            setRecycledViewPool(RecyclerView.RecycledViewPool())
+            adapter = this@DetailBookFragment.moreAuthor
+            visible(false)
+        }
+
+        rcMoreBook.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            setHasFixedSize(true)
+            setRecycledViewPool(RecyclerView.RecycledViewPool())
+            adapter = this@DetailBookFragment.moreBook
+            visible(false)
+        }
 
     }
 
@@ -119,6 +138,7 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
         fullscreenProgressView.visible(show)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun showBook(books: BooksEntity) {
         tvNameBook.text = books.name
         tvAuthorName.text = books.author
@@ -127,11 +147,32 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
             .load(books.photo)
             .into(imgBook)
 
-        tvPriceBook.text = books.price.formattedMoney()
+        if (books.favorite == 1) {
+            imgFavorite.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_red))
+            isAddedFavorite = false
+        }
+        tvPriceBook.text = (books.price * 100L).formattedMoney() +"  "+ getString(R.string.price)
         tvDetailBook.text = books.description
 
+        tvEmail.text = tvEmail.text.toString() +"\n"+ getString(R.string.my_email)
+        tvPhone.text = tvPhone.text.toString() +"\n"+ getString(R.string.my_phone_number)
+        imageView.setImage(ImageSource.resource(R.drawable.geo_location))
         activity?.hideSoftInput()
         activity?.hideKeyboard()
+    }
+
+    override fun showAuthors(books: List<BooksEntity>) {
+        tvFromThisAuthor.visible(true)
+        rcAuthor.fadeIn()
+        postViewAction { moreAuthor.setData(books) }
+        moreAuthor.notifyDataSetChanged()
+    }
+
+    override fun showMoreBooks(books: List<BooksEntity>) {
+        tvSimularBooks.visible(true)
+        rcMoreBook.fadeIn()
+        postViewAction { moreBook.setData(books) }
+        moreBook.notifyDataSetChanged()
     }
 
     private fun showDialogAddFavorite() {
@@ -147,12 +188,13 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
         }, 300)
         Handler().postDelayed({
             dialog.dismiss()
-            imgBack.menu.getItem(0).icon = resources.getDrawable(R.drawable.ic_favorite_red)
+            imgFavorite.setImageDrawable(resources.getDrawable(R.drawable.ic_favorite_red))
         }, 2000)
 
     }
 
     override fun showDialog() {
+        showProgressDialog(false)
         val view = layoutInflater.inflate(R.layout.item_registration, null)
         val etNumber = view.findViewById<EditText>(R.id.etAbonentCode)
         val next = view.findViewById<Button>(R.id.btnNext)
@@ -167,6 +209,9 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
             if (etNumber.text.toString().trim().length == 13) {
                 etNumber.error = null
                 dialog.dismiss()
+                activity?.hideSoftInput()
+                activity?.hideKeyboard()
+                showProgressDialog(true)
                 presentor.buyBook(etNumber.text.toString(), item_counter.value)
             } else {
                 etNumber.setError(getString(R.string.invalid_phone), null)
@@ -225,7 +270,14 @@ class DetailBookFragment : BaseFragment(), DetailBookView {
     }
 
     override fun showSuccessful(message: String) {
-
+        showProgressDialog(false)
+        val dialog = AlertDialog.Builder(activity!!)
+        dialog.setTitle(getString(R.string.successfull))
+        dialog.setPositiveButton(getString(R.string.ok)
+        ) { dialog, _ -> dialog?.dismiss() }
+        dialog.setMessage(getString(R.string.info_success))
+        dialog.create()
+        dialog.show()
     }
 
     override fun onBackPressed() {

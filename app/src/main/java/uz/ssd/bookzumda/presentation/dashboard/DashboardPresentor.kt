@@ -33,8 +33,13 @@ class DashboardPresentor @Inject constructor(
                 viewState.showProgress(false)
             }
             .subscribe({ response ->
-                if (prefs.item == "0")
+                if (prefs.item == "0") {
                     saveBooks(response)
+                    val dashboardList = response.filter {
+                        it.janr_id == "50"
+                    }
+                    viewState.showCardsList(dashboardList)
+                }
                 val fictionBooks = response.filter {
                     it.janr_id == "100"
                 }
