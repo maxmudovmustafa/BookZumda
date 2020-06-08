@@ -91,18 +91,16 @@ class MyBooksPresenter @Inject constructor(
 
     private fun cancelOrder(book: MyBookEntity) {
         viewState.showProgress(true)
-        viewState.showProgress(true)
         var urlString = "https://api.telegram.org/bot%s/sendMessage?chat_id=%s&text=%s"
         val apiToken = "1282139079:AAGxWsN3uZnBYW8bFbOP8hMZJT7t6L_0DGs"
         val chatId = "194952542"
-        viewState.showProgress(true)
 
         val text = Tuple4(
             prefs.account.phone,
             book.amount,
             book.name,
-            book.photo?:"",
-            book.author?:""
+            book.photo ?: "",
+            book.author ?: "" + "cancel"
         )
 
         val json = Gson().toJson(text)
@@ -121,9 +119,7 @@ class MyBooksPresenter @Inject constructor(
             val br = BufferedReader(InputStreamReader(inputStream))
             val response = br.readText()
             viewState.showProgress(false)
-            if (response.isNotEmpty()) {
-                bookDao.cancelOrder(book)
-            }
+            bookDao.cancelOrder(book)
         } catch (ex: Exception) {
             viewState.showProgress(false)
             viewState.showError(ex.message.toString())

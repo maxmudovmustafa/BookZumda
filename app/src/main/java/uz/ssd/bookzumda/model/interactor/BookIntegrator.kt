@@ -197,27 +197,25 @@ class BookIntegrator @Inject constructor(
         myBooksDao.delete(book)
     }
 
-    fun getAllCategory() {
-        categoryDao.getAllCategory()
-            .map {
-                when {
-                    it.isNullOrEmpty() -> {
-                        readCategory()
-                    }
-                    prefs.currentDate == getDate() -> {
-                        it
-                    }
-                    else -> {
-                        prefs.currentDate = getDate()
-                        readCategory()
-                    }
+    fun getAllCategory() = categoryDao.getAllCategory()
+        .map {
+            when {
+                it.isNullOrEmpty() -> {
+                    readCategory()
                 }
-            }.subscribeOn(scheduler.io())
-            .observeOn(scheduler.ui())
-    }
+                prefs.currentDate == getDate() -> {
+                    it
+                }
+                else -> {
+                    prefs.currentDate = getDate()
+                    readCategory()
+                }
+            }
+        }.subscribeOn(scheduler.io())
+        .observeOn(scheduler.ui())
 
 
-    fun readCategory(): List<CategoryEntity> {
+    private fun readCategory(): List<CategoryEntity> {
         val json =
             getJsonFromURL("https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/category.json")
         val jsonString: String? = try {
