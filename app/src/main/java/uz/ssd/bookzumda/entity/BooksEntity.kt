@@ -3,6 +3,7 @@ package uz.ssd.bookzumda.entity
 import androidx.annotation.NonNull
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.JsonClass
 
 /**
@@ -23,5 +24,7 @@ class BooksEntity(
     val janr_id: String?,
     val photo: String?,
     val janr_type: String?,
-    var favorite: Int = 0
+    var favorite: Int = 0,
+    @SerializedName("type_id_book")
+    val typeId : Int ? = 1
 )

@@ -21,6 +21,7 @@ class CategoriesPresenter @Inject constructor(
 ) : BasePresenter<CategoryViewView>() {
 
     private var bookInfo: List<BooksEntity>? = null
+    private var respon: ArrayList<String> = ArrayList()
     private var category: List<CategoryEntity> = emptyList()
 
     override fun onFirstViewAttach() {
@@ -48,14 +49,21 @@ class CategoriesPresenter @Inject constructor(
                 viewState.showProgress(false)
             }
             .subscribe({ response ->
+                val list = category.filter {
                 val books = response.filter { book ->
-                    val list = category.first {
-                        book.janr_type?.contains(it.name) ?: false
+                    val list = book.janr_type?.split(',')
+                    val result = list?.filter { type->
+                        (type.toLowerCase().trim() == it.name.toLowerCase().trim())
                     }
-                    list != null
+                    respon.addAll(list ?: emptyList())
+                    !result.isNullOrEmpty()
+//                    book.janr_type?.contains(it.name) ?: false
+                    }
+                    it.amount += books.size
+                    !books.isNullOrEmpty()
                 }
-                bookInfo = books
-                viewState.showBooks(books)
+                bookInfo = response
+                viewState.showBooks(list)
             }, { error ->
                 viewState.showMessage(error.message.toString())
                 error.printStackTrace()
@@ -64,7 +72,6 @@ class CategoriesPresenter @Inject constructor(
 
     fun onClickedBook(book: Tuple5) {
         viewState.showMessage(book.detail)
-//        router.newChain(Screens.DetailBook(book.drawable))
     }
 
 
