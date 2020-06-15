@@ -2,7 +2,7 @@ package uz.ssd.bookzumda.presentation.profile
 
 import moxy.InjectViewState
 import uz.ssd.bookzumda.Screens
-import uz.ssd.bookzumda.entity.UserAccount
+import uz.ssd.bookzumda.model.entity.UserAccount
 import uz.ssd.bookzumda.model.data.storage.Prefs
 import uz.ssd.bookzumda.model.system.flow.FlowRouter
 import uz.ssd.bookzumda.presentation.global.BasePresenter

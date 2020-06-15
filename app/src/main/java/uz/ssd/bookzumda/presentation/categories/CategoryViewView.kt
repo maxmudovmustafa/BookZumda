@@ -4,8 +4,7 @@ import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.OneExecutionStateStrategy
 import moxy.viewstate.strategy.StateStrategyType
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.category.CategoryEntity
+import uz.ssd.bookzumda.model.entity.category.CategoryEntity
 
 /**
  * Created by MrShoxruxbek on 22,May,2020

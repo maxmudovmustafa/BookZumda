@@ -1,4 +1,4 @@
-package uz.ssd.bookzumda.entity
+package uz.ssd.bookzumda.model.entity
 
 import com.squareup.moshi.JsonClass
 

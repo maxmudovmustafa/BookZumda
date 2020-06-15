@@ -3,8 +3,8 @@ package uz.ssd.bookzumda.model.data.storage
 import android.content.Context
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.UserAccount
+import uz.ssd.bookzumda.model.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.UserAccount
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject

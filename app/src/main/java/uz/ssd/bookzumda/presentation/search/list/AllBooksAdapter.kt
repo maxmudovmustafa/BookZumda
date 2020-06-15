@@ -15,7 +15,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.item_search_book.view.*
 import uz.ssd.bookzumda.R
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 import uz.ssd.bookzumda.ui.global.formattedMoney
 import uz.ssd.bookzumda.ui.global.inflate
 import uz.ssd.bookzumda.ui.global.visible

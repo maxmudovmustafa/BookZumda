@@ -8,7 +8,7 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import toothpick.Toothpick
 import uz.ssd.bookzumda.R
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 import uz.ssd.bookzumda.presentation.search.SearchPresenter
 import uz.ssd.bookzumda.presentation.search.SearchsView
 import uz.ssd.bookzumda.ui.global.BaseFragment

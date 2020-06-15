@@ -2,7 +2,7 @@ package uz.ssd.bookzumda.presentation.dashboard
 
 import moxy.InjectViewState
 import uz.ssd.bookzumda.Screens
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 import uz.ssd.bookzumda.model.data.storage.Prefs
 import uz.ssd.bookzumda.model.interactor.BookIntegrator
 import uz.ssd.bookzumda.model.system.flow.FlowRouter

@@ -2,7 +2,7 @@ package uz.ssd.bookzumda.ui.dashboard.list
 
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 
 /**
  * Created by MrShoxruxbek on 22,May,2020

@@ -1,10 +1,8 @@
 package uz.ssd.bookzumda.model.data
 
 import androidx.room.*
-import io.reactivex.Flowable
 import io.reactivex.Single
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.MyBookEntity
+import uz.ssd.bookzumda.model.entity.MyBookEntity
 
 /**
  * Created by MrShoxruxbek on 21,May,2020

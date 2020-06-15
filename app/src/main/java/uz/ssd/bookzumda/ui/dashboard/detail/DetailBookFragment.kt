@@ -3,7 +3,6 @@ package uz.ssd.bookzumda.ui.dashboard.detail
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
@@ -27,7 +26,7 @@ import toothpick.config.Module
 import uz.ssd.bookzumda.R
 import uz.ssd.bookzumda.di.BOOK_ID
 import uz.ssd.bookzumda.di.PrimitiveWrapper
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 import uz.ssd.bookzumda.presentation.dashboard.detail.DetailBookPresentor
 import uz.ssd.bookzumda.presentation.dashboard.detail.DetailBookView
 import uz.ssd.bookzumda.ui.dashboard.detail.list.MoreAuthoerList

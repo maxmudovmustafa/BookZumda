@@ -11,8 +11,8 @@ import toothpick.config.Module
 import uz.ssd.bookzumda.R
 import uz.ssd.bookzumda.di.PrimitiveWrapper
 import uz.ssd.bookzumda.di.TYPE
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.MyBookEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.MyBookEntity
 import uz.ssd.bookzumda.presentation.profile.MyBooksPresenter
 import uz.ssd.bookzumda.presentation.profile.MyBooksView
 import uz.ssd.bookzumda.presentation.search.list.AllBooksAdapter

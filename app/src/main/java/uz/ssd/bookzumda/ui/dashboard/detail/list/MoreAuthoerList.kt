@@ -4,8 +4,6 @@ import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -15,11 +13,10 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import kotlinx.android.synthetic.main.item_book.view.*
 import uz.ssd.bookzumda.R
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 import uz.ssd.bookzumda.ui.global.inflate
 import uz.ssd.bookzumda.ui.global.visible
 import uz.ssd.bookzumda.util.Animation
-import java.util.*
 import kotlin.collections.ArrayList
 
 class MoreAuthoerList(

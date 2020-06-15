@@ -6,9 +6,9 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import io.reactivex.Observable
 import io.reactivex.Single
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.MyBookEntity
-import uz.ssd.bookzumda.entity.category.CategoryEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.MyBookEntity
+import uz.ssd.bookzumda.model.entity.category.CategoryEntity
 import uz.ssd.bookzumda.model.data.BooksDao
 import uz.ssd.bookzumda.model.data.CategoryDao
 import uz.ssd.bookzumda.model.data.MyBookDao
@@ -131,8 +131,8 @@ class BookIntegrator @Inject constructor(
             .observeOn(scheduler.ui())
 
     fun readJson(): List<BooksEntity> {
-        val json =
-            getJsonFromURL("https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/cv.json")
+//        val json =
+//            getJsonFromURL("https://raw.githubusercontent.com/MrShoxruxbek/Cloud_Image/master/dashboard/cv.json")
         val jsonString: String? = try {
             val inputStream = context.assets.open(JSON_FILE_NAME)
             val size = inputStream.available()
@@ -146,7 +146,7 @@ class BookIntegrator @Inject constructor(
         }
 
         val gson = GsonBuilder().create()
-        val listOfBooks = gson.fromJson(json, Array<BooksEntity>::class.java).toList()
+        val listOfBooks = gson.fromJson(jsonString, Array<BooksEntity>::class.java).toList()
         return listOfBooks
 
 //        val booksList = moshi.adapter<List<BooksEntity>>(booksType).fromJson(jsonString)
@@ -154,7 +154,7 @@ class BookIntegrator @Inject constructor(
 //        return booksList
     }
 
-    fun getJsonFromURL(wantedURL: String): String {
+    private fun getJsonFromURL(wantedURL: String): String {
         return URL(wantedURL).readText()
     }
 

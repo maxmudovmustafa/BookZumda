@@ -12,7 +12,7 @@ import moxy.presenter.ProvidePresenter
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 import uz.ssd.bookzumda.R
 import uz.ssd.bookzumda.Screens
-import uz.ssd.bookzumda.entity.AccountMainBadge
+import uz.ssd.bookzumda.model.entity.AccountMainBadge
 import uz.ssd.bookzumda.presentation.main.MainPresenter
 import uz.ssd.bookzumda.presentation.main.MainView
 import uz.ssd.bookzumda.ui.global.BaseFragment

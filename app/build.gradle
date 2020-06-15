@@ -19,7 +19,7 @@ android {
         vectorDrawables.useSupportLibrary = true
         archivesBaseName = "books-$versionName($versionCode)"
 
-        buildConfigField "String", "PAY_ENDPOINT", "\"http://83.69.135.13:1518/\""
+        buildConfigField "String", "PAY_ENDPOINT", "\"http://localhost:44999/\""
     }
 
     signingConfigs {

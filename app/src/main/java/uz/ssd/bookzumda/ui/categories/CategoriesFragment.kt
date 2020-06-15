@@ -8,8 +8,8 @@ import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import toothpick.Toothpick
 import uz.ssd.bookzumda.R
-import uz.ssd.bookzumda.entity.Tuple5
-import uz.ssd.bookzumda.entity.category.CategoryEntity
+import uz.ssd.bookzumda.model.entity.Tuple5
+import uz.ssd.bookzumda.model.entity.category.CategoryEntity
 import uz.ssd.bookzumda.presentation.categories.CategoriesPresenter
 import uz.ssd.bookzumda.presentation.categories.CategoryViewView
 import uz.ssd.bookzumda.ui.categories.ls.CategoryListList
@@ -225,8 +225,8 @@ class CategoriesFragment : BaseFragment(), CategoryViewView {
         category.forEach {
             items.add(
                 Tuple5(
-                    backgroundDrawable[if (it.id >= 8) it.id - 8 else it.id],
-                    backgroundColor[if (it.id >= 8) it.id - 8 else it.id],
+                    backgroundDrawable[if (it.idColumn >= 8) it.idColumn - 8 else it.idColumn],
+                    backgroundColor[if (it.idColumn >= 8) it.idColumn - 8 else it.idColumn],
                     it.amount.toString(),
                     it.name,
                     it

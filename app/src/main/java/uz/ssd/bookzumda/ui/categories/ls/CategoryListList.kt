@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_category.view.*
 import uz.ssd.bookzumda.R
-import uz.ssd.bookzumda.entity.Tuple5
+import uz.ssd.bookzumda.model.entity.Tuple5
 import uz.ssd.bookzumda.ui.global.inflate
 import uz.ssd.bookzumda.util.Animation
 import java.util.*

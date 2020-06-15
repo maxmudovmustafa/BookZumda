@@ -2,9 +2,9 @@ package uz.ssd.bookzumda.model.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.MyBookEntity
-import uz.ssd.bookzumda.entity.category.CategoryEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.MyBookEntity
+import uz.ssd.bookzumda.model.entity.category.CategoryEntity
 
 /**
  * Created by MrShoxruxbek on 21,May,2020

@@ -4,9 +4,9 @@ import com.google.gson.Gson
 import moxy.InjectViewState
 import uz.ssd.bookzumda.di.PrimitiveWrapper
 import uz.ssd.bookzumda.di.TYPE
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.MyBookEntity
-import uz.ssd.bookzumda.entity.Tuple4
+import uz.ssd.bookzumda.model.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.MyBookEntity
+import uz.ssd.bookzumda.model.entity.Tuple4
 import uz.ssd.bookzumda.model.data.storage.Prefs
 import uz.ssd.bookzumda.model.interactor.BookIntegrator
 import uz.ssd.bookzumda.model.system.flow.FlowRouter

@@ -1,9 +1,9 @@
 package uz.ssd.bookzumda.presentation.categories
 
 import moxy.InjectViewState
-import uz.ssd.bookzumda.entity.BooksEntity
-import uz.ssd.bookzumda.entity.Tuple5
-import uz.ssd.bookzumda.entity.category.CategoryEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.Tuple5
+import uz.ssd.bookzumda.model.entity.category.CategoryEntity
 import uz.ssd.bookzumda.model.data.storage.Prefs
 import uz.ssd.bookzumda.model.interactor.BookIntegrator
 import uz.ssd.bookzumda.model.system.flow.FlowRouter

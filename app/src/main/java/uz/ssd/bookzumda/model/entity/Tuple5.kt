@@ -1,4 +1,4 @@
-package uz.ssd.bookzumda.entity
+package uz.ssd.bookzumda.model.entity
 
 /**
  * Created by MrShoxruxbek on 03,June,2020

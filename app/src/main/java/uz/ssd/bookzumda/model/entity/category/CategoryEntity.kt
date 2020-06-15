@@ -1,10 +1,10 @@
-package uz.ssd.bookzumda.entity.category
+package uz.ssd.bookzumda.model.entity.category
 
 import androidx.annotation.NonNull
 import androidx.room.*
 import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.JsonClass
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 
 /**
  * Created by MrShoxruxbek on 05,June,2020

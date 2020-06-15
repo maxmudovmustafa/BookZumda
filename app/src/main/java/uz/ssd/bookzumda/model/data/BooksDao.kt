@@ -2,7 +2,7 @@ package uz.ssd.bookzumda.model.data
 
 import androidx.room.*
 import io.reactivex.Single
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 
 /**
  * Created by MrShoxruxbek on 21,May,2020

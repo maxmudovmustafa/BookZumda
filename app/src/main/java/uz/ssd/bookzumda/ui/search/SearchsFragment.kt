@@ -6,13 +6,12 @@ import android.widget.ImageView
 import androidx.appcompat.widget.SearchView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mlsdev.animatedrv.AnimatedRecyclerView
 import kotlinx.android.synthetic.main.fragment_search_book.*
 import moxy.presenter.InjectPresenter
 import moxy.presenter.ProvidePresenter
 import toothpick.Toothpick
 import uz.ssd.bookzumda.R
-import uz.ssd.bookzumda.entity.BooksEntity
+import uz.ssd.bookzumda.model.entity.BooksEntity
 import uz.ssd.bookzumda.presentation.search.SearchPresenter
 import uz.ssd.bookzumda.presentation.search.SearchsView
 import uz.ssd.bookzumda.presentation.search.list.AllBooksAdapter
@@ -20,7 +19,6 @@ import uz.ssd.bookzumda.ui.global.BaseFragment
 import uz.ssd.bookzumda.ui.global.fadeIn
 import uz.ssd.bookzumda.ui.global.showSnackMessage
 import uz.ssd.bookzumda.ui.global.visible
-import uz.ssd.bookzumda.util.ReadJsonServer
 import java.net.URL
 
 /**
